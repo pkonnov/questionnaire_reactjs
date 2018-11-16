@@ -50,35 +50,32 @@ class Quiz extends Component {
   }
 
   nextQuestion = () => {
-    this.setState({
-      activeQuestion: this.state.activeQuestion + 1,
-      answerState: null,
-      showBtnFruther: !this.state.showBtnFruther,
-      notRight: null
-    })
+    if (this.isQuizFinished()){
+      console.log('fifnished')
+    } else {
+      this.setState({
+        activeQuestion: this.state.activeQuestion + 1,
+        answerState: null,
+        showBtnFruther: !this.state.showBtnFruther,
+        notRight: null
+      })
+    }
   }
 
   onAnswerClickHandler = (answerId) => {
 
     const question = this.state.quiz[this.state.activeQuestion]
-    // console.log(question)
+
     this.setState({
       showBtnFruther: true,
       notRight: question.answers[answerId-1].description
     })
-    // console.log(this.notRight)
 
     if (question.rightAnswerId === answerId){
 
       this.setState({
         answerState: {[answerId]: 'success'},
       })
-
-        if (this.isQuizFinished()){
-          return console.log('fifnished');
-        } else {
-
-        }
 
     } else {
       this.setState({
@@ -89,7 +86,7 @@ class Quiz extends Component {
   }
 
 isQuizFinished(){
-  return this.state.activeQuestion +1 === this.state.quiz.length
+  return this.state.activeQuestion + 1 === this.state.quiz.length
 }
 
   render() {

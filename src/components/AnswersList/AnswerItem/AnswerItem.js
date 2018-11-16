@@ -18,7 +18,7 @@ const AnswerItem = props => {
       className={cls.join(' ')}
       onClick={() => props.onAnswerClick(props.answer.id)}
     >
-      {props.answer.text} <br/>
+      {props.answer.id + '. ' + props.answer.text}
     </li>
 
   )
