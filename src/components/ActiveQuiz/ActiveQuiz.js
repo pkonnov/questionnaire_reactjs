@@ -24,8 +24,10 @@ const ActiveQuiz = props => {
         </p>
 
         <AnswersList
+          state={props.state}
           answers={props.answers}
           onAnswerClick={props.onAnswerClick}
+          notRight={props.notRight}
         />
       </div>
   }
@@ -33,6 +35,16 @@ const ActiveQuiz = props => {
   return (
     <div className={classes.ActiveQuiz}>
         {closeTitle}
+        {props.classBtnFruther
+         ?
+         <button
+         title="Yes this is a bug, hide, show"
+         className={classes.BtnFruther}
+         onClick={props.nextQuestion}
+         >Следующий вопрос
+         </button>
+         : null
+        }
     </div>
   )
 }

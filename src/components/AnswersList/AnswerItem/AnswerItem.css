@@ -15,3 +15,11 @@
 .AnswerItem:hover > {
 
 }
+
+.AnswerItem.success{
+  background: #86fb86;
+}
+
+.AnswerItem.error{
+  background: #ff5050;
+}

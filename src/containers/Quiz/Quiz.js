@@ -4,8 +4,11 @@ import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 
 class Quiz extends Component {
   state = {
+    answerState: null,
     showTitle: false,
     activeQuestion: 0,
+    showBtnFruther: false,
+    notRight: null,
     titlePage: [
       {
         titleTest: 'Название опросника',
@@ -16,23 +19,25 @@ class Quiz extends Component {
       {
         question: 'Какого цвета неебо?',
         rightAnswerId: 2,
+        rightAnswerQuestion: 'ахахахаха',
         id: 1,
         answers: [
-          {text: 'Ответ 1', id:1},
-          {text: 'Ответ 2', id:2},
-          {text: 'Ответ 3', id:3},
-          {text: 'Ответ 4', id:4}
+          {text: 'Ответ 1', id:1, description:'какое то описание1'},
+          {text: 'Ответ 2', id:2, description:'какое то описание2'},
+          {text: 'Ответ 3', id:3, description:'какое то описание3'},
+          {text: 'Ответ 4', id:4, description:'какое то описание4'}
         ]
       },
       {
         question: 'Какого хуя?',
         rightAnswerId: 3,
+        rightAnswerQuestion: 'петя ты чо дурак?',
         id: 2,
         answers: [
-          {text: 'Ответ 1', id:1},
-          {text: 'Ответ 2', id:2},
-          {text: 'Ответ 3', id:3},
-          {text: 'Ответ 4', id:4}
+          {text: '0Ответ 1', id:1, description:'какое то описание1'},
+          {text: '0Ответ 2', id:2, description:'какое то описание2'},
+          {text: '0Ответ 3', id:3, description:'какое то описание3'},
+          {text: '0Ответ 4', id:4, description:'какое то описание4'}
         ]
       }
     ]
@@ -44,12 +49,48 @@ class Quiz extends Component {
     })
   }
 
-  onAnswerClickHandler = (answerId) => {
-    console.log("answer id: ", answerId)
+  nextQuestion = () => {
     this.setState({
-      activeQuestion: this.state.activeQuestion + 1
+      activeQuestion: this.state.activeQuestion + 1,
+      answerState: null,
+      showBtnFruther: !this.state.showBtnFruther,
+      notRight: null
     })
   }
+
+  onAnswerClickHandler = (answerId) => {
+
+    const question = this.state.quiz[this.state.activeQuestion]
+    // console.log(question)
+    this.setState({
+      showBtnFruther: true,
+      notRight: question.answers[answerId-1].description
+    })
+    // console.log(this.notRight)
+
+    if (question.rightAnswerId === answerId){
+
+      this.setState({
+        answerState: {[answerId]: 'success'},
+      })
+
+        if (this.isQuizFinished()){
+          return console.log('fifnished');
+        } else {
+
+        }
+
+    } else {
+      this.setState({
+        answerState: {[answerId]: 'error'}
+      })
+    }
+
+  }
+
+isQuizFinished(){
+  return this.state.activeQuestion +1 === this.state.quiz.length
+}
 
   render() {
     return (
@@ -57,14 +98,18 @@ class Quiz extends Component {
           <div className={classes.QuizWrapper}>
             <ActiveQuiz
               showTitle={this.state.showTitle}
-              titleTest={this.state.titlePage.titleTest}
-              textTest={this.state.titlePage.textTest}
+              titleTest={this.state.titlePage[0].titleTest}
+              textTest={this.state.titlePage[0].textTest}
               titleShowHandle={this.titleShowHandle}
               answers={this.state.quiz[this.state.activeQuestion].answers}
               question={this.state.quiz[this.state.activeQuestion].question}
               onAnswerClick={this.onAnswerClickHandler}
               quizLength={this.state.quiz.length}
               answerNumber={this.state.activeQuestion + 1}
+              classBtnFruther={this.state.showBtnFruther}
+              nextQuestion={this.nextQuestion}
+              state={this.state.answerState}
+              notRight={this.state.notRight}
             />
           </div>
       </div>
