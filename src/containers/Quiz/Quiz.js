@@ -10,6 +10,7 @@ class Quiz extends Component {
     showBtnFruther: false,
     notRight: null,
     pointerEvent: '',
+    balls: [],
     titlePage: [
       {
         titleTest: 'Название опросника',
@@ -67,12 +68,15 @@ class Quiz extends Component {
   onAnswerClickHandler = (answerId) => {
 
     const question = this.state.quiz[this.state.activeQuestion]
+    const ball = question.answers[answerId-1].id
+    console.log(ball)
 
     this.setState({
       showBtnFruther: true,
       notRight: question.answers[answerId-1].description,
-      pointerEvent: 'none'
-    })
+      pointerEvent: 'none',
+      balls: this.state.balls.push(ball+"")
+    }, () => {console.log(ball)})
 
     if (question.rightAnswerId === answerId){
 
