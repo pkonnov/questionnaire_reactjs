@@ -9,6 +9,7 @@ class Quiz extends Component {
     activeQuestion: 0,
     showBtnFruther: false,
     notRight: null,
+    pointerEvent: '',
     titlePage: [
       {
         titleTest: 'Название опросника',
@@ -57,7 +58,8 @@ class Quiz extends Component {
         activeQuestion: this.state.activeQuestion + 1,
         answerState: null,
         showBtnFruther: !this.state.showBtnFruther,
-        notRight: null
+        notRight: null,
+        pointerEvent: ''
       })
     }
   }
@@ -68,7 +70,8 @@ class Quiz extends Component {
 
     this.setState({
       showBtnFruther: true,
-      notRight: question.answers[answerId-1].description
+      notRight: question.answers[answerId-1].description,
+      pointerEvent: 'none'
     })
 
     if (question.rightAnswerId === answerId){
@@ -107,6 +110,7 @@ isQuizFinished(){
               nextQuestion={this.nextQuestion}
               state={this.state.answerState}
               notRight={this.state.notRight}
+              pointerEvent={this.state.pointerEvent}
             />
           </div>
       </div>

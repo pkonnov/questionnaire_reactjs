@@ -28,6 +28,7 @@ const ActiveQuiz = props => {
           answers={props.answers}
           onAnswerClick={props.onAnswerClick}
           notRight={props.notRight}
+          pointerEvent={props.pointerEvent}
         />
       </div>
   }
@@ -38,7 +39,7 @@ const ActiveQuiz = props => {
         {props.classBtnFruther
          ?
          <button
-         title="Yes this is a bug, hide, show"
+         title="Следующий вопрос"
          className={classes.BtnFruther}
          onClick={props.nextQuestion}
          >Следующий вопрос
