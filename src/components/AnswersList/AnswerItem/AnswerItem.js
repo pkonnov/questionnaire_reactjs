@@ -9,16 +9,17 @@ const AnswerItem = props => {
     cls.push(classes[props.state])
   }
 
-  // const showDes = (answerId) => {
-  //   return null
-  // }
-
   return(
     <li
       className={cls.join(' ')}
       onClick={() => props.onAnswerClick(props.answer.id)}
     >
       {props.answer.id + '. ' + props.answer.text}
+      <span className={classes.AnswerItemSpan}>
+      {props.state === 'success'
+      || props.state === 'error'
+      ? props.answer.percentage : null}
+      </span>
     </li>
 
   )
