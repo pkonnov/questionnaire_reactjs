@@ -42,7 +42,7 @@ const ActiveQuiz = props => {
          title="Следующий вопрос"
          className={classes.BtnFruther}
          onClick={props.nextQuestion}
-         >Следующий вопрос
+         >{props.isQuizFinished ? 'Показать результат' : 'Следующий вопрос'}
          </button>
          : null
         }
