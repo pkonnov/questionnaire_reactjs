@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classes from './Quiz.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
+import Finished from '../../components/Finished/Finished'
 
 class Quiz extends Component {
   state = {
@@ -10,6 +11,7 @@ class Quiz extends Component {
     showBtnFruther: false,
     notRight: null,
     pointerEvent: '',
+    isFinished: false,
     balls: [],
     whoAreYou: [
       {
@@ -87,6 +89,9 @@ class Quiz extends Component {
       const reducer = (acc, crntv) => acc + crntv
       const countBall = this.state.balls.reduce(reducer)
       console.log(countBall);
+      this.setState({
+        isFinished: true
+      })
     } else {
       this.setState({
         activeQuestion: this.state.activeQuestion + 1,
@@ -132,22 +137,30 @@ isQuizFinished(){
     return (
       <div className={classes.Quiz}>
           <div className={classes.QuizWrapper}>
-            <ActiveQuiz
-              showTitle={this.state.showTitle}
-              titleTest={this.state.titlePage[0].titleTest}
-              textTest={this.state.titlePage[0].textTest}
-              titleShowHandle={this.titleShowHandle}
-              answers={this.state.quiz[this.state.activeQuestion].answers}
-              question={this.state.quiz[this.state.activeQuestion].question}
-              onAnswerClick={this.onAnswerClickHandler}
-              quizLength={this.state.quiz.length}
-              answerNumber={this.state.activeQuestion + 1}
-              classBtnFruther={this.state.showBtnFruther}
-              nextQuestion={this.nextQuestion}
-              state={this.state.answerState}
-              notRight={this.state.notRight}
-              pointerEvent={this.state.pointerEvent}
+            {
+              this.state.isFinished
+              ?
+              <Finished
+
+              />
+              :
+              <ActiveQuiz
+                showTitle={this.state.showTitle}
+                titleTest={this.state.titlePage[0].titleTest}
+                textTest={this.state.titlePage[0].textTest}
+                titleShowHandle={this.titleShowHandle}
+                answers={this.state.quiz[this.state.activeQuestion].answers}
+                question={this.state.quiz[this.state.activeQuestion].question}
+                onAnswerClick={this.onAnswerClickHandler}
+                quizLength={this.state.quiz.length}
+                answerNumber={this.state.activeQuestion + 1}
+                classBtnFruther={this.state.showBtnFruther}
+                nextQuestion={this.nextQuestion}
+                state={this.state.answerState}
+                notRight={this.state.notRight}
+                pointerEvent={this.state.pointerEvent}
             />
+          }
           </div>
       </div>
     )
