@@ -11,6 +11,24 @@ class Quiz extends Component {
     notRight: null,
     pointerEvent: '',
     balls: [],
+    whoAreYou: [
+      {
+        id:1,
+        you: '1',
+      },
+      {
+        id:2,
+        you: '2',
+      },
+      {
+        id:3,
+        you: '3',
+      },
+      {
+        id:4,
+        you: '4',
+      },
+    ],
     titlePage: [
       {
         titleTest: 'Название опросника',
@@ -31,7 +49,7 @@ class Quiz extends Component {
         ]
       },
       {
-        question: 'Какого хуя?',
+        question: 'Какого days?',
         rightAnswerId: 3,
         rightAnswerQuestion: 'петя ты чо дурак?',
         id: 2,
@@ -40,6 +58,18 @@ class Quiz extends Component {
           {text: '0Ответ 2', id:2, description:'какое то описание2'},
           {text: '0Ответ 3', id:3, description:'какое то описание3'},
           {text: '0Ответ 4', id:4, description:'какое то описание4'}
+        ]
+      },
+      {
+        question: 'Какого jepa?',
+        rightAnswerId: 3,
+        rightAnswerQuestion: 'петя ты чо дурак?',
+        id: 3,
+        answers: [
+          {text: '0Отв1', id:1, description:'какое то описание1'},
+          {text: '0Отв2', id:2, description:'какое то описание2'},
+          {text: '0Отв3', id:3, description:'какое то описание3'},
+          {text: '0Отв4', id:4, description:'какое то описание4'}
         ]
       }
     ]
@@ -54,6 +84,9 @@ class Quiz extends Component {
   nextQuestion = () => {
     if (this.isQuizFinished()){
       console.log('fifnished')
+      const reducer = (acc, crntv) => acc + crntv
+      const countBall = this.state.balls.reduce(reducer)
+      console.log(countBall);
     } else {
       this.setState({
         activeQuestion: this.state.activeQuestion + 1,
@@ -68,15 +101,14 @@ class Quiz extends Component {
   onAnswerClickHandler = (answerId) => {
 
     const question = this.state.quiz[this.state.activeQuestion]
-    const ball = question.answers[answerId-1].id
-    console.log(ball)
+    const ball = this.state.balls.push(question.answers[answerId-1].id)
+    console.log(this.state.balls)
 
     this.setState({
       showBtnFruther: true,
       notRight: question.answers[answerId-1].description,
-      pointerEvent: 'none',
-      balls: this.state.balls.push(ball+"")
-    }, () => {console.log(ball)})
+      pointerEvent: 'none'
+    })
 
     if (question.rightAnswerId === answerId){
 
