@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './ActiveQuiz.css'
 import AnswersList from '../AnswersList/AnswersList'
-
+import ReactHtmlParser from 'react-html-parser'
 
 const ActiveQuiz = props => {
   let closeTitle;
@@ -9,7 +9,7 @@ const ActiveQuiz = props => {
     closeTitle =
       <div>
       <h1>{props.titleTest}</h1>
-      <p>{props.textTest}</p>
+      <p>{ReactHtmlParser(props.textTest)}</p>
       <button onClick={props.titleShowHandle}>Начать тест</button>
       </div>
   } else {
@@ -29,6 +29,7 @@ const ActiveQuiz = props => {
           onAnswerClick={props.onAnswerClick}
           notRight={props.notRight}
           pointerEvent={props.pointerEvent}
+          showBtnFruther={props.classBtnFruther}
         />
       </div>
   }

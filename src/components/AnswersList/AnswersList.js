@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './AnswersList.css'
 import AnswerItem from './AnswerItem/AnswerItem'
+import ReactHtmlParser from 'react-html-parser'
+
 
 const AnswersList = props => {
 
@@ -19,10 +21,11 @@ const AnswersList = props => {
             onAnswerClick={props.onAnswerClick}
             state={props.state ? props.state[answer.id] : null}
             notRight={props.notRight}
+            showBtnFruther={props.showBtnFruther}
           />
         )
       })}
-      {props.notRight}
+      {ReactHtmlParser(props.notRight)}
     </ul>
   )
 }

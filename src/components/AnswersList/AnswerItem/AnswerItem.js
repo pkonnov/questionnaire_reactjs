@@ -16,9 +16,7 @@ const AnswerItem = props => {
     >
       {props.answer.id + '. ' + props.answer.text}
       <span className={classes.AnswerItemSpan}>
-      {props.state === 'success'
-      || props.state === 'error'
-      ? props.answer.percentage : null}
+      {props.showBtnFruther ? props.answer.percentage : null}
       </span>
     </li>
 
