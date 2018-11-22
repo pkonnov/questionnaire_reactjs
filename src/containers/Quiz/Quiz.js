@@ -70,7 +70,7 @@ class Quiz extends Component {
   onAnswerClickHandler = (answerId) => {
 
     const question = this.state.quiz[this.state.activeQuestion]
-    const ball = this.state.balls.push(question.answers[answerId-1].id)
+    const ball = this.state.balls.push(question.answers[answerId-1].b)
     // console.log(this.state.balls)
 
     this.setState({
