@@ -25,7 +25,7 @@ const AnswersList = props => {
           />
         )
       })}
-      <p>{ReactHtmlParser(props.notRight)}</p>
+      <p className={props.showBtnFruther ? classes.RightAnswer : null}>{ReactHtmlParser(props.notRight)}</p>
     </ul>
   )
 }

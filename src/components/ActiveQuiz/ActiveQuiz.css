@@ -13,4 +13,16 @@
 }
 .BtnFruther {
   cursor: pointer;
+  background: #be1d1e;
+  border: none;
+  color: #f7f7f7;
+  box-shadow: 0 0 2px 0px rgb(107, 107, 107);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 5px;
+}
+.BtnFruther:hover{
+  box-shadow: 0 0 0px 0px rgb(107, 107, 107);
+  transition: box-shadow .1s;
 }

@@ -3,3 +3,9 @@
   margin: 0;
   padding: 0;
 }
+
+.RightAnswer{
+  background: #e4e4e4;
+  padding: 5px;
+  border-radius: 5px;
+}
