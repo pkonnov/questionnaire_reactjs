@@ -25,7 +25,7 @@ const AnswersList = props => {
           />
         )
       })}
-      {ReactHtmlParser(props.notRight)}
+      <p>{ReactHtmlParser(props.notRight)}</p>
     </ul>
   )
 }

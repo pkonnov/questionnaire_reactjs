@@ -71,7 +71,7 @@ class Quiz extends Component {
 
     const question = this.state.quiz[this.state.activeQuestion]
     const ball = this.state.balls.push(question.answers[answerId-1].id)
-    console.log(this.state.balls)
+    // console.log(this.state.balls)
 
     this.setState({
       showBtnFruther: true,
@@ -90,6 +90,7 @@ class Quiz extends Component {
         answerState: {[answerId]: 'error'}
       })
     }
+
 
   }
 
