@@ -3,6 +3,7 @@ import classes from './Quiz.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import Finished from '../../components/Finished/Finished'
 import dq from '../../DataQuiz'
+import way from '../../DataWhoAreYou'
 
 class Quiz extends Component {
   state = {
@@ -14,24 +15,7 @@ class Quiz extends Component {
     pointerEvent: '',
     isFinished: false,
     balls: [],
-    whoAreYou: [
-      {
-        id:1,
-        you: '1',
-      },
-      {
-        id:2,
-        you: '2',
-      },
-      {
-        id:3,
-        you: '3',
-      },
-      {
-        id:4,
-        you: '4',
-      },
-    ],
+    whoAreYou: way,
     titlePage: [
       {
         titleTest: '«Удалить аппендицит в домашних условиях искать»',
@@ -52,10 +36,12 @@ class Quiz extends Component {
       console.log('fifnished')
       const reducer = (acc, crntv) => acc + crntv
       const countBall = this.state.balls.reduce(reducer)
-      console.log(countBall);
+
       this.setState({
-        isFinished: true
+        isFinished: true,
+        balls: countBall
       })
+
     } else {
       this.setState({
         activeQuestion: this.state.activeQuestion + 1,
@@ -71,7 +57,7 @@ class Quiz extends Component {
 
     const question = this.state.quiz[this.state.activeQuestion]
     const ball = this.state.balls.push(question.answers[answerId-1].b)
-    // console.log(this.state.balls)
+    console.log(this.state.whoAreYou)
 
     this.setState({
       showBtnFruther: true,
@@ -106,7 +92,8 @@ isQuizFinished(){
               this.state.isFinished
               ?
               <Finished
-
+              balls={this.state.balls}
+              whoAreYou={this.state.whoAreYou}
               />
               :
               <ActiveQuiz
