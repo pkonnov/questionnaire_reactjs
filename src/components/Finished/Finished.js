@@ -1,23 +1,29 @@
 import React from 'react'
 import classes from './Finished.css'
+import ReactHtmlParser from 'react-html-parser'
 
 
 const Finished = props => {
 
-  // const CountBallTheEnd = (props) => {
-  //     return <p>{this.props.whoAreYou}</p>
-  // }
+  const TextYou = () => {
+    let text
+    if(props.balls < 2 || props.balls === 2){
+      text = props.whoAreYou[0].text
+    } else if (props.balls === 3 && props.balls < 4){
+      text = props.whoAreYou[1].text
+    } else if (props.balls === 4 || props.balls < 6){
+      text = props.whoAreYou[2].text
+    } else if (props.balls > 6 || props.balls === 6){
+      text = props.whoAreYou[3].text
+    }
+    return ReactHtmlParser(text)
+  }
 
   return (
     <div className={classes.Finished}>
-        // {props.whoAreYou.map((i) => {
-        //   if(props.balls > 4){
-        //     return i.you[0].text
-        //   } if else (props.balls > 6){
-        //     return ''
-        //   }
-        // })}
-        <p></p>
+        <TextYou />
+
+        <p>{props.balls} / 10</p>
     </div>
   )
 }

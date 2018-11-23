@@ -4,6 +4,7 @@ import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import Finished from '../../components/Finished/Finished'
 import dq from '../../DataQuiz'
 import way from '../../DataWhoAreYou'
+import ReactHtmlParser from 'react-html-parser'
 
 class Quiz extends Component {
   state = {
@@ -33,7 +34,6 @@ class Quiz extends Component {
 
   nextQuestion = () => {
     if (this.isQuizFinished()){
-      console.log('fifnished')
       const reducer = (acc, crntv) => acc + crntv
       const countBall = this.state.balls.reduce(reducer)
 
@@ -57,7 +57,6 @@ class Quiz extends Component {
 
     const question = this.state.quiz[this.state.activeQuestion]
     const ball = this.state.balls.push(question.answers[answerId-1].b)
-    console.log(this.state.whoAreYou)
 
     this.setState({
       showBtnFruther: true,

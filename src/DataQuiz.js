@@ -130,7 +130,7 @@ export default [
   },
   {
     question: 'Чем  лечить сухой кашель',
-    rightAnswerId: 3,
+    rightAnswerId: 4,
     rightAnswerQuestion: 'петя ты чо дурак?',
     id: 5,
     answers: [
