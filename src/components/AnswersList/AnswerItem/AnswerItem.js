@@ -10,7 +10,7 @@ const AnswerItem = props => {
   }
 
   const right = {
-    color: 'green'
+    color: '#657900'
   }
 
 

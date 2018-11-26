@@ -7,3 +7,23 @@
     box-sizing: border-box;
     background: white;
 }
+
+.BtnReload {
+  font-family: "Ubuntu",sans-serif;
+  cursor: pointer;
+  background: #adb77a;
+  border: none;
+  color: #2d2d2d;
+  box-shadow: 0 0 2px 0px rgb(107, 107, 107);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.BtnReload:hover{
+  box-shadow: 0 0 0px 0px rgb(107, 107, 107);
+  transition: box-shadow .1s;
+}

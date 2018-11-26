@@ -22,11 +22,11 @@ const Finished = props => {
 
   return (
     <div className={classes.Finished}>
-        <TextYou />
-
-        <p>{props.balls} / 10</p>
+        <h2>{props.balls} / 10</h2>
+        <h3><TextYou /></h3>
+        <p>{ReactHtmlParser(props.whoAreYou[4].textOnly)}</p>
         <button
-        className={classes.BtnFruther}
+        className={classes.BtnReload}
         onClick={props.showTitle}
         >Пройти еще раз</button>
     </div>
