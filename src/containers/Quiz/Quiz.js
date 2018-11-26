@@ -80,9 +80,19 @@ class Quiz extends Component {
 
   }
 
-isQuizFinished(){
-  return this.state.activeQuestion + 1 === this.state.quiz.length
-}
+  showTitleHandler = () => {
+    this.setState({
+      activeQuestion: 0,
+      answerState: null,
+      isFinished: false,
+      showTitle: true,
+      answerState: null,
+    })
+  }
+
+  isQuizFinished(){
+    return this.state.activeQuestion + 1 === this.state.quiz.length
+  }
 
   render() {
     return (
@@ -94,6 +104,7 @@ isQuizFinished(){
               <Finished
               balls={this.state.balls}
               whoAreYou={this.state.whoAreYou}
+              showTitle={this.showTitleHandler}
               />
               :
               <ActiveQuiz

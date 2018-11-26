@@ -1,5 +1,5 @@
 .Layout{
-  background-image: url("/static/image/fonSarmed.jpg");
+  background-image: url("https://www.sarinform.ru/events/build/static/image/fonSarmed.jpg");
   height: 100vh;
   display: flex;
   flex-direction: column;
