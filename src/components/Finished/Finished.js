@@ -25,7 +25,10 @@ const Finished = props => {
         <TextYou />
 
         <p>{props.balls} / 10</p>
-        <button className={classes.BtnFruther}>Пройти еще раз</button>
+        <button
+        className={classes.BtnFruther}
+        onClick={props.showTitle}
+        >Пройти еще раз</button>
     </div>
   )
 }
