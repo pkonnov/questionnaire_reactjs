@@ -1,10 +1,11 @@
 .ActiveQuiz {
   padding: 20px;
   color: black;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #00000026;
+  border-radius: 1px;
   margin: 0 10px;
   box-sizing: border-box;
+  background: white;
 }
 
 .Question{
@@ -12,17 +13,25 @@
   justify-content: space-between;
 }
 .BtnFruther {
+  font-family: "Ubuntu",sans-serif;
   cursor: pointer;
-  background: #be1d1e;
+  background: #adb77a;
   border: none;
-  color: #f7f7f7;
+  color: #2d2d2d;
   box-shadow: 0 0 2px 0px rgb(107, 107, 107);
   font-size: 16px;
   font-weight: 700;
   border-radius: 5px;
   padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 .BtnFruther:hover{
   box-shadow: 0 0 0px 0px rgb(107, 107, 107);
   transition: box-shadow .1s;
+}
+.PrevText{
+  font-size:16px;
+  text-align: center;
 }

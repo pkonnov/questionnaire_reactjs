@@ -8,9 +8,11 @@ const ActiveQuiz = props => {
   if(props.showTitle){
     closeTitle =
       <div>
-      <h1>{props.titleTest}</h1>
+      <h3>{props.titleTest}</h3>
+      <p className={classes.PrevText}>{props.prevText}</p>
       <p>{ReactHtmlParser(props.textTest)}</p>
-      <button onClick={props.titleShowHandle}>Начать тест</button>
+      <button className={classes.BtnFruther}
+              onClick={props.titleShowHandle}>Начать тест</button>
       </div>
   } else {
     closeTitle =

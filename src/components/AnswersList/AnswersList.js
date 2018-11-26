@@ -9,6 +9,7 @@ const AnswersList = props => {
   const styles = {pointerEvents: props.pointerEvent}
 
   return (
+    <div>
     <ul
       className={classes.AnswersList}
       style={styles}
@@ -25,8 +26,10 @@ const AnswersList = props => {
           />
         )
       })}
-      <p className={props.showBtnFruther ? classes.RightAnswer : null}>{ReactHtmlParser(props.notRight)}</p>
     </ul>
+    <p className={props.showBtnFruther ? classes.RightAnswer : null}>
+    {ReactHtmlParser(props.notRight)}</p>
+    </div>
   )
 }
 

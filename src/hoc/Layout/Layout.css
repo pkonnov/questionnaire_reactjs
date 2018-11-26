@@ -1,4 +1,5 @@
 .Layout{
+  background-image: url("/static/image/fonSarmed.jpg");
   height: 100vh;
   display: flex;
   flex-direction: column;
