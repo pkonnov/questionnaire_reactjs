@@ -27,3 +27,15 @@
   box-shadow: 0 0 0px 0px rgb(107, 107, 107);
   transition: box-shadow .1s;
 }
+
+.SocialShare{
+  display: flex;
+  justify-content: center;
+  margin-top:20px;
+}
+.SocialShare > div{
+  padding-left: 10px;
+}
+.SocialShare:hover{
+  cursor: pointer;
+}

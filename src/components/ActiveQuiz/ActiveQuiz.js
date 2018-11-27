@@ -2,9 +2,27 @@ import React from 'react'
 import classes from './ActiveQuiz.css'
 import AnswersList from '../AnswersList/AnswersList'
 import ReactHtmlParser from 'react-html-parser'
+import {
+  FacebookShareButton,
+  TelegramShareButton,
+  VKShareButton,
+  OKShareButton,
+} from 'react-share'
+import {
+  FacebookShareCount,
+  VKShareCount,
+  OKShareCount,
+} from 'react-share'
+import {
+  FacebookIcon,
+  TelegramIcon,
+  VKIcon,
+  OKIcon,
+} from 'react-share'
 
 const ActiveQuiz = props => {
   let closeTitle
+  const shareUrl = 'https://sarinform.ru'
   if(props.showTitle){
     closeTitle =
       <div>
@@ -13,6 +31,24 @@ const ActiveQuiz = props => {
       <p>{ReactHtmlParser(props.textTest)}</p>
       <button className={classes.BtnFruther}
               onClick={props.titleShowHandle}>Начать тест</button>
+      <div className={classes.SocialShare}>
+        <FacebookShareButton url={shareUrl}>
+          <FacebookIcon size={32} />
+        </FacebookShareButton>
+
+        <VKShareButton url={shareUrl}>
+          <VKIcon size={32} />
+        </VKShareButton>
+
+        <OKShareButton url={shareUrl}>
+          <OKIcon size={32} />
+        </OKShareButton>
+
+        <TelegramShareButton url={shareUrl}>
+          <TelegramIcon size={32} />
+        </TelegramShareButton>
+      </div>
+
       </div>
   } else {
     closeTitle =
