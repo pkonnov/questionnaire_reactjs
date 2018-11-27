@@ -4,7 +4,7 @@ import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import Finished from '../../components/Finished/Finished'
 import dq from '../../DataQuiz'
 import way from '../../DataWhoAreYou'
-import ReactHtmlParser from 'react-html-parser'
+import axios from 'axios'
 
 class Quiz extends Component {
   state = {
@@ -37,6 +37,8 @@ class Quiz extends Component {
     if (this.isQuizFinished()){
       const reducer = (acc, crntv) => acc + crntv
       const countBall = this.state.balls.reduce(reducer)
+
+      axios('https://sprmspc.ru/restapi/api/lead/')
 
       this.setState({
         isFinished: true,

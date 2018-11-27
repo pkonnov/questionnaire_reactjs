@@ -4,8 +4,7 @@ import AnswersList from '../AnswersList/AnswersList'
 import ReactHtmlParser from 'react-html-parser'
 
 const ActiveQuiz = props => {
-  let closeTitle;
-  const shareUrl = 'https://sarinform.ru/events/';
+  let closeTitle
   if(props.showTitle){
     closeTitle =
       <div>

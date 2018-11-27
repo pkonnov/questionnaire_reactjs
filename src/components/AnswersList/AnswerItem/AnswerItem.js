@@ -13,7 +13,6 @@ const AnswerItem = props => {
     color: '#657900'
   }
 
-
   return(
     <li
       className={cls.join(' ')}
@@ -27,7 +26,6 @@ const AnswerItem = props => {
       {props.showBtnFruther ? props.answer.percentage : null}
       </span>
     </li>
-
   )
 }
 
