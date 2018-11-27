@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser'
 
 const ActiveQuiz = props => {
   let closeTitle;
+  const shareUrl = 'https://sarinform.ru/events/';
   if(props.showTitle){
     closeTitle =
       <div>

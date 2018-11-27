@@ -10,7 +10,7 @@ class Quiz extends Component {
   state = {
     answerState: null,
     showTitle: true,
-    activeQuestion: 9,
+    activeQuestion: 0,
     showBtnFruther: false,
     notRight: null,
     pointerEvent: '',
@@ -81,7 +81,15 @@ class Quiz extends Component {
   }
 
   showTitleHandler = () => {
-    return window.location.reload()
+    this.setState({
+      answerState: null,
+      activeQuestion: 0,
+      isFinished: false,
+      notRight: null,
+      pointerEvent: '',
+      showBtnFruther: false,
+      balls: []
+    })
   }
 
   isQuizFinished(){
