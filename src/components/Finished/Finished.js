@@ -22,7 +22,10 @@ import {
 const Finished = props => {
 
   const shareUrl = 'https://www.sarinform.ru/quiz/mts-region-quiz'
-
+  const styleHref = {
+    textDecoration: 'none',
+    color: 'rgb(239, 91, 87)'
+  }
   const TextYou = () => {
     let text
     if(props.balls < 1 || props.balls === 1){
@@ -40,7 +43,8 @@ const Finished = props => {
 
   return (
     <div className={classes.Finished}>
-        <h2>{props.balls} / 10</h2>
+        <s>{props.balls} / 10</s>
+        <p>Тест МТС и Саринформа о том, можно ли ставить диагноз и лечиться самостоятельно, приведет ли это к выздоровлению. Но лучше все же обратиться <a href="https://www.smartmed.pro/" style={styleHref} target="_blank">к доктору!</a></p>
         <h3><TextYou /></h3>
         <p>{ReactHtmlParser(props.whoAreYou[4].textOnly)}</p>
         <button

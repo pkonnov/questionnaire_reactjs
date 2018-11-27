@@ -23,6 +23,7 @@ import {
 const ActiveQuiz = props => {
   let closeTitle
   const shareUrl = 'https://sarinform.ru'
+
   if(props.showTitle){
     closeTitle =
       <div>

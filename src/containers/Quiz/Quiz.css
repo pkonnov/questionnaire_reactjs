@@ -13,3 +13,9 @@
 .QuizWrapper {
   width: 600px;
 }
+
+@media screen and (max-width:500px){
+  .Quiz{
+    padding-top: 30px;
+  }
+}
