@@ -22,7 +22,7 @@ import {
 
 const ActiveQuiz = props => {
   let closeTitle
-  const shareUrl = 'https://sarinform.ru'
+  const shareUrl = 'https://www.sarinform.ru/quiz/mts-region-quiz'
 
   if(props.showTitle){
     closeTitle =
