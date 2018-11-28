@@ -46,7 +46,7 @@ const Finished = props => {
         <s>{props.balls} / 10</s>
         <p>Тест МТС и Саринформа о том, можно ли ставить диагноз и лечиться самостоятельно, приведет ли это к выздоровлению. Но лучше все же обратиться <a href="https://www.smartmed.pro/" style={styleHref} target="_blank">к доктору!</a></p>
         <h3><TextYou /></h3>
-        <p>{ReactHtmlParser(props.whoAreYou[4].textOnly)}</p>
+        <div>{ReactHtmlParser(props.whoAreYou[4].textOnly)}</div>
         <button
         className={classes.BtnReload}
         onClick={props.showTitle}

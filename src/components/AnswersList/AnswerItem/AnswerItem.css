@@ -10,7 +10,18 @@
 
 .AnswerItemSpan{
   padding: 2px;
+  /* animation: rtr 3s ease-in-out infinite;
+  -webkit-animation: rtr 3s ease-in-out infinite; */
 }
+/*
+@keyframes rtr {
+    90% { transform: none; }
+    95% { transform: scaleY(0.1); }
+   }
+   @-webkit-keyframes rtr {
+    90% { transform: none; }
+    95% { transform: scaleY(0.1); }
+   } */
 
 .AnswerItem:hover {
   background: #f0e4d4;

@@ -29,7 +29,7 @@ const ActiveQuiz = props => {
       <div>
       <h3>{props.titleTest}</h3>
       <p className={classes.PrevText}>{props.prevText}</p>
-      <p>{ReactHtmlParser(props.textTest)}</p>
+      {ReactHtmlParser(props.textTest)}
       <button className={classes.BtnFruther}
               onClick={props.titleShowHandle}>Начать тест</button>
       <div className={classes.SocialShare}>
